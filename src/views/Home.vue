@@ -22,6 +22,7 @@
                 v-for="sound in sounds"
                 :key="sound.name"
                 @click="playSound(sound)"
+                @keyup.enter="playSound(sound)"
               >
                 {{ sound.name }}
               </div>
@@ -66,6 +67,7 @@ export default {
     playSound: function (instrument) {
       let s = new Audio(instrument.src);
       this.currentSound = instrument.name;
+      console.log(instrument);
       s.play();
     },
   },
