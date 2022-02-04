@@ -15,9 +15,16 @@
             </b-row>
           </b-card>
           <!-- Drum buttons -->
-          <b-card class="mt-4">
+          <b-card class="my-4">
             <b-row class="justify-content-center">
-              <div class="sound-button bg-info">X</div>
+              <div
+                class="sound-button bg-info border-primary m-1 rounded-lg"
+                v-for="sound in sounds"
+                :key="sound.name"
+                @click="playSound(sound.src)"
+              >
+                {{ sound.name }}
+              </div>
             </b-row>
           </b-card>
         </b-col>
@@ -26,31 +33,38 @@
   </div>
 </template>
 
-<style scoped>
+<style>
 .sound-button {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.sound-button {
+  cursor: pointer;
 }
 </style>
 
 <script>
-// import axios from "axios";
-import audio from "./audio";
-let snare = new Audio("/audio/snare.wav");
+// import sound files
+import sounds from "../audio/sounds";
+
 export default {
   name: "App",
   components: {},
   data: function () {
     return {
-      audio,
+      sounds,
     };
   },
   created: function () {},
   mounted: function () {},
   methods: {
-    playSound: function () {
-      snare.play();
-      console.log("snare!");
+    playSound: function (instrument) {
+      let s = new Audio(instrument);
+      s.play();
     },
   },
 };
