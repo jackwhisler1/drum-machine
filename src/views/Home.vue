@@ -1,23 +1,20 @@
 <template>
   <div id="app" class="b-container-lg mx-auto my-4 bg-info">
-    <div class="container-md">
-      <h1 class="display-1 text-center">Drum Machine</h1>
-      <div class="row">
-        <div class="col bg-primary">1 of 3</div>
-        <div class="col-6 bg-white">2 of 3 (wider)</div>
-        <div class="col bg-primary">3 of 3</div>
-      </div>
-      <div class="row p-2">
-        <div class="col bg-primary">
-          <button v-on:click="playSound()" class="btn btn-block btn-danger">Click me</button>
-        </div>
-        <div class="col-5 bg-white">2 of 3 (wider)</div>
-        <div class="col bg-primary">3 of 3</div>
-      </div>
-    </div>
     <b-container>
       <b-row>
-        <b-col cols="6" offset="3">Drum</b-col>
+        <b-col cols="6" offset="3">
+          <b-card class="mt-4">
+            <b-row class="justify-content-between mx-2">
+              <b-form-checkbox switch size="lg">Large</b-form-checkbox>
+              <div class="border px-4 py-2">Sound Name</div>
+            </b-row>
+            <b-row class="mx-4 my-2">
+              <label for="volume">Volume</label>
+              <b-form-input id="volume" v-model="volume" type="range" min="0" max="10"></b-form-input>
+            </b-row>
+          </b-card>
+          <b-card class="mt-4"></b-card>
+        </b-col>
       </b-row>
     </b-container>
   </div>
