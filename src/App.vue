@@ -6,11 +6,5 @@
 </template>
 
 <script>
-export default {
-  mounted() {
-    window.addEventListener("keypress", (e) => {
-      console.log(String.fromCharCode(e.keyCode));
-    });
-  },
-};
+export default {};
 </script>

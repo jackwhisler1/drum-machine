@@ -62,13 +62,26 @@ export default {
     };
   },
   created: function () {},
-  mounted: function () {},
+  mounted: function () {
+    window.addEventListener("keypress", this._keyListener);
+  },
   methods: {
     playSound: function (instrument) {
+      console.log(instrument);
+
       let s = new Audio(instrument.src);
       this.currentSound = instrument.name;
-      console.log(instrument);
       s.play();
+    },
+    _keyListener: function (e) {
+      console.log(e);
+
+      if (e.key === "s") {
+        // let key = e.key;
+        let param = this.sounds[0]["s"];
+        console.log(param);
+        this.playSound(param);
+      }
     },
   },
 };

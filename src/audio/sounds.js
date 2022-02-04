@@ -1,5 +1,5 @@
 export default [
-  { name: "Snare", src: require("./snare.mp3") },
+  { s: { name: "Snare", src: require("./snare.mp3") } },
   { name: "Snare 2", src: require("./snare.wav") },
   { name: "Bass Drum", src: require("./bass_drum.mp3") },
   { name: "Hi-Hat", src: require("./hi_hat_closed.mp3") },
