@@ -7,7 +7,7 @@
           <b-card class="mt-4">
             <b-row class="justify-content-between mx-2">
               <b-form-checkbox switch size="lg">Large</b-form-checkbox>
-              <div class="border px-4 py-2">Sound Name</div>
+              <div class="border px-4 py-2">{{ currentSound }}</div>
             </b-row>
             <b-row class="mx-4 my-2">
               <label for="volume">Volume</label>
@@ -21,7 +21,7 @@
                 class="sound-button bg-info border-primary m-1 rounded-lg"
                 v-for="sound in sounds"
                 :key="sound.name"
-                @click="playSound(sound.src)"
+                @click="playSound(sound)"
               >
                 {{ sound.name }}
               </div>
@@ -57,13 +57,15 @@ export default {
   data: function () {
     return {
       sounds,
+      currentSound: "",
     };
   },
   created: function () {},
   mounted: function () {},
   methods: {
     playSound: function (instrument) {
-      let s = new Audio(instrument);
+      let s = new Audio(instrument.src);
+      this.currentSound = instrument.name;
       s.play();
     },
   },
