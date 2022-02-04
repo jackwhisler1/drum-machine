@@ -3,6 +3,7 @@
     <b-container>
       <b-row>
         <b-col cols="6" offset="3">
+          <!-- Controls -->
           <b-card class="mt-4">
             <b-row class="justify-content-between mx-2">
               <b-form-checkbox switch size="lg">Large</b-form-checkbox>
@@ -13,21 +14,36 @@
               <b-form-input id="volume" v-model="volume" type="range" min="0" max="10"></b-form-input>
             </b-row>
           </b-card>
-          <b-card class="mt-4"></b-card>
+          <!-- Drum buttons -->
+          <b-card class="mt-4">
+            <b-row class="justify-content-center">
+              <div class="sound-button bg-info">X</div>
+            </b-row>
+          </b-card>
         </b-col>
       </b-row>
     </b-container>
   </div>
 </template>
 
+<style scoped>
+.sound-button {
+  width: 200px;
+  height: 200px;
+}
+</style>
+
 <script>
 // import axios from "axios";
+import audio from "./audio";
 let snare = new Audio("/audio/snare.wav");
 export default {
   name: "App",
   components: {},
   data: function () {
-    return {};
+    return {
+      audio,
+    };
   },
   created: function () {},
   mounted: function () {},
