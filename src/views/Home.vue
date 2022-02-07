@@ -22,7 +22,6 @@
                 v-for="sound in sounds"
                 :key="sound.name"
                 @click="playSound(sound)"
-                @keyup.enter="playSound(sound)"
               >
                 {{ sound.name }}
               </div>
@@ -78,7 +77,7 @@ export default {
 
       if (e.key === "s") {
         // let key = e.key;
-        let param = this.sounds[0]["s"];
+        let param = this.sounds["s"];
         console.log(param);
         this.playSound(param);
       }
