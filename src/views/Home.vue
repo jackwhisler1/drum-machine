@@ -19,11 +19,13 @@
             <b-row class="justify-content-center">
               <div
                 class="sound-button bg-info border-primary m-1 rounded-lg"
-                v-for="sound in sounds"
+                v-for="(sound, index) in sounds"
                 :key="sound.name"
                 @click="playSound(sound)"
               >
                 {{ sound.name }}
+                <br />
+                {{ index }}
               </div>
             </b-row>
           </b-card>
@@ -73,7 +75,7 @@ export default {
       instr.play();
     },
     _keyListener: function (e) {
-      console.log(e);
+      // console.log(e);
       let key = e.key.toUpperCase();
       let param = this.sounds[key];
       // console.log(param);
