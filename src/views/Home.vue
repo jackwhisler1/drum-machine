@@ -58,29 +58,26 @@ export default {
     return {
       sounds,
       currentSound: "",
+      volume: 0,
     };
   },
   created: function () {},
   mounted: function () {
-    window.addEventListener("keypress", this._keyListener);
+    window.addEventListener("keydown", this._keyListener);
   },
   methods: {
     playSound: function (instrument) {
-      console.log(instrument);
-
-      let s = new Audio(instrument.src);
+      // console.log(instrument);
+      let instr = new Audio(instrument.src);
       this.currentSound = instrument.name;
-      s.play();
+      instr.play();
     },
     _keyListener: function (e) {
       console.log(e);
-
-      if (e.key === "s") {
-        // let key = e.key;
-        let param = this.sounds["s"];
-        console.log(param);
-        this.playSound(param);
-      }
+      let key = e.key.toUpperCase();
+      let param = this.sounds[key];
+      // console.log(param);
+      this.playSound(param);
     },
   },
 };
