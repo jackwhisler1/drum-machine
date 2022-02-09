@@ -17,7 +17,7 @@
           <!-- Drum buttons -->
           <b-card class="my-4">
             <b-row class="justify-content-center">
-              <div
+              <v-btn
                 class="sound-button bg-info border-primary m-1 rounded-lg"
                 v-for="(sound, index) in sounds"
                 :key="sound.name"
@@ -26,7 +26,7 @@
                 {{ sound.name }}
                 <br />
                 {{ index }}
-              </div>
+              </v-btn>
             </b-row>
           </b-card>
         </b-col>
