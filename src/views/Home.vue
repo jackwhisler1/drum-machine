@@ -18,7 +18,10 @@
           <b-card class="my-4">
             <b-row class="justify-content-center">
               <v-btn
-                class="sound-button bg-info border-primary m-1 rounded-lg"
+                class="m-4 sound-button"
+                x-large
+                elevation="15"
+                color="green"
                 v-for="(sound, index) in sounds"
                 :key="sound.name"
                 @click="playSound(sound)"
@@ -37,7 +40,7 @@
 
 <style>
 .sound-button {
-  width: 100px;
+  width: 150px;
   height: 100px;
   display: flex;
   justify-content: center;
@@ -59,7 +62,7 @@ export default {
   data: function () {
     return {
       sounds,
-      currentSound: "",
+      currentSound: "Drum",
       volume: 0,
     };
   },
