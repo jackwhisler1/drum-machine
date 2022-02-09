@@ -6,7 +6,7 @@
           <!-- Controls -->
           <b-card class="mt-4">
             <b-row class="justify-content-between mx-2">
-              <b-form-checkbox switch size="lg">Large</b-form-checkbox>
+              <b-form-checkbox v-model="isOn" switch size="lg">Power</b-form-checkbox>
               <div class="border px-4 py-2">{{ currentSound }}</div>
             </b-row>
             <b-row class="mx-4 my-2">
@@ -64,6 +64,7 @@ export default {
       sounds,
       currentSound: "Drum",
       volume: 0,
+      isOn: true,
     };
   },
   created: function () {},
@@ -72,10 +73,11 @@ export default {
   },
   methods: {
     playSound: function (instrument) {
-      // console.log(instrument);
-      let instr = new Audio(instrument.src);
-      this.currentSound = instrument.name;
-      instr.play();
+      if (this.isOn === true) {
+        let instr = new Audio(instrument.src);
+        this.currentSound = instrument.name;
+        instr.play();
+      }
     },
     _keyListener: function (e) {
       // console.log(e);
