@@ -1,10 +1,17 @@
 <template>
-  <div id="app">
-    <div id="nav"></div>
-    <router-view />
-  </div>
+  <v-app class="bg-dark">
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "App",
+
+  data: () => ({
+    //
+  }),
+};
 </script>

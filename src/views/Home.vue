@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="b-container-lg mx-auto my-4 bg-info">
+  <div id="app" class="b-container-lg mx-auto my-4 bg-dark">
     <b-container>
       <b-row>
         <b-col cols="6" offset="3">
@@ -11,7 +11,14 @@
             </b-row>
             <b-row class="mx-4 my-2">
               <label for="volume">Volume</label>
-              <b-form-input id="volume" v-model="volume" type="range" min="0" max="10"></b-form-input>
+              <b-form-input
+                id="volume"
+                v-model="volume"
+                type="range"
+                min="0"
+                max="10"
+                class="custom-range"
+              ></b-form-input>
             </b-row>
           </b-card>
           <!-- Drum buttons -->
@@ -19,7 +26,7 @@
             <b-card class="my-4">
               <b-row class="justify-content-center">
                 <v-btn
-                  class="m-4 sound-button"
+                  class="m-3 sound-button"
                   x-large
                   elevation="15"
                   color="green"
@@ -49,6 +56,17 @@
   align-items: center;
   cursor: pointer;
 }
+.custom-range::-webkit-slider-thumb {
+  background: gray;
+}
+
+.custom-range::-moz-range-thumb {
+  background: gray;
+}
+
+.custom-range::-ms-thumb {
+  background: gray;
+}
 </style>
 
 <script>
@@ -76,15 +94,12 @@ export default {
         let instr = new Audio(instrument.src);
         this.currentSound = instrument.name;
         instr.volume = this.volume / 10.0;
-        console.log(this.volume);
         instr.play();
       }
     },
     _keyListener: function (e) {
-      // console.log(e);
       let key = e.key.toUpperCase();
       let param = this.sounds[key];
-      // console.log(param);
       this.playSound(param);
     },
   },
