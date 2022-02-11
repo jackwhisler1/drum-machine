@@ -15,23 +15,25 @@
             </b-row>
           </b-card>
           <!-- Drum buttons -->
-          <b-card class="my-4">
-            <b-row class="justify-content-center">
-              <v-btn
-                class="m-4 sound-button"
-                x-large
-                elevation="15"
-                color="green"
-                v-for="(sound, index) in sounds"
-                :key="sound.name"
-                @click="playSound(sound)"
-              >
-                {{ sound.name }}
-                <br />
-                {{ index }}
-              </v-btn>
-            </b-row>
-          </b-card>
+          <div v-if="isOn">
+            <b-card class="my-4">
+              <b-row class="justify-content-center">
+                <v-btn
+                  class="m-4 sound-button"
+                  x-large
+                  elevation="15"
+                  color="green"
+                  v-for="(sound, index) in sounds"
+                  :key="sound.name"
+                  @click="playSound(sound)"
+                >
+                  {{ sound.name }}
+                  <br />
+                  {{ index }}
+                </v-btn>
+              </b-row>
+            </b-card>
+          </div>
         </b-col>
       </b-row>
     </b-container>
@@ -47,9 +49,6 @@
   align-items: center;
   cursor: pointer;
 }
-.sound-button {
-  cursor: pointer;
-}
 </style>
 
 <script>
@@ -63,7 +62,7 @@ export default {
     return {
       sounds,
       currentSound: "Drum",
-      volume: 0,
+      volume: 5,
       isOn: true,
     };
   },
@@ -76,6 +75,8 @@ export default {
       if (this.isOn === true) {
         let instr = new Audio(instrument.src);
         this.currentSound = instrument.name;
+        instr.volume = this.volume / 10.0;
+        console.log(this.volume);
         instr.play();
       }
     },
