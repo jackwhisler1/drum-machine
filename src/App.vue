@@ -1,6 +1,11 @@
 <template>
   <!-- eslint-disable prettier/prettier -->
   <v-app class="bg-dark">
+    <header class="bg-light">
+      <div class="container-sm my-2 text-center">
+        <h1 class="d-inline-flex bebas">DRUM MACHINE</h1>
+      </div>
+    </header>
     <v-main>
       <router-view />
     </v-main>
@@ -25,6 +30,13 @@
     </v-footer>
   </v-app>
 </template>
+<style>
+.bebas {
+  font-family: "Bebas Neue", cursive !important;
+  font-size: 60px;
+  color: black;
+}
+</style>
 
 <script>
 /* eslint-disable prettier/prettier */
