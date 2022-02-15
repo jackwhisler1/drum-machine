@@ -4,7 +4,7 @@
       <b-row>
         <b-col cols="6" offset="3">
           <!-- Controls -->
-          <b-card class="mt-4">
+          <b-card class="mt-4 drum-buttons">
             <b-row class="justify-content-between mx-2">
               <b-form-checkbox v-model="isOn" switch size="lg">Power</b-form-checkbox>
               <div class="border px-4 py-2">{{ currentSound }}</div>
@@ -23,7 +23,7 @@
           </b-card>
           <!-- Drum buttons -->
           <div v-if="isOn">
-            <b-card class="my-4">
+            <b-card class="my-4 justify-content-center drum-buttons">
               <b-row class="justify-content-center">
                 <v-btn
                   class="m-3 sound-button"
@@ -49,12 +49,15 @@
 
 <style>
 .sound-button {
-  width: 150px;
-  height: 100px;
+  width: 26%;
+  height: 130px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  overflow: hidden;
+}
+.drum-buttons {
 }
 .custom-range::-webkit-slider-thumb {
   background: gray;
