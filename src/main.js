@@ -9,8 +9,6 @@ import router from "./router";
 // import "/app.scss";
 import vuetify from "@/plugins/vuetify"; // path to vuetify export
 
-import "~/favicon.ico";
-
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 
